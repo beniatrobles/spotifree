@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -44,5 +43,17 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    // ✅ Relación con playlists
+    public function playlists()
+    {
+        return $this->hasMany(Playlist::class);
+    }
+
+    // ✅ Relación con likes (si usás tabla de likes)
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
     }
 }
