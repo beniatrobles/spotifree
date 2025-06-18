@@ -1,13 +1,13 @@
 # Laravel (backend)
+/spotify-backend/vendor/
+/spotify-backend/node_modules/
+/spotify-backend/.env
+/spotify-backend/storage/
+/spotify-backend/bootstrap/cache/
 
-/backend/vendor/
-/backend/node_modules/
-/backend/.env
-/backend/storage/
-/backend/bootstrap/cache/
-
-/frontend/node_modules/
-/frontend/build/
+# React (frontend)
+/spotify-frontend/node_modules/
+/spotify-frontend/build/
 
 # Archivos del sistema
 .DS_Store
