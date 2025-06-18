@@ -1,0 +1,14 @@
+# Laravel (backend)
+
+/backend/vendor/
+/backend/node_modules/
+/backend/.env
+/backend/storage/
+/backend/bootstrap/cache/
+
+/frontend/node_modules/
+/frontend/build/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
