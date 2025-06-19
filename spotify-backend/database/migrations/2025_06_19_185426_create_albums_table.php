@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->foreignId('artist_id')->constrained();
             $table->date('release_date')->nullable();
+            $table->string('image');
             $table->timestamps();
         });
     }
