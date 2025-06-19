@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\Like;
@@ -6,31 +7,59 @@ use Illuminate\Http\Request;
 
 class LikeController extends Controller
 {
-    public function index(Request $request)
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
     {
-        return $request->user()->likes()->with('song')->get();
+        //
     }
 
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'song_id' => 'required|exists:songs,id',
-        ]);
-
-        $like = $request->user()->likes()->firstOrCreate(['song_id' => $data['song_id']]);
-
-        return response()->json($like, 201);
+        //
     }
 
-    public function destroy(Request $request, $songId)
+    /**
+     * Display the specified resource.
+     */
+    public function show(Like $like)
     {
-        $like = $request->user()->likes()->where('song_id', $songId)->first();
+        //
+    }
 
-        if ($like) {
-            $like->delete();
-            return response()->json(['message' => 'Like eliminado']);
-        }
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Like $like)
+    {
+        //
+    }
 
-        return response()->json(['message' => 'Like no encontrado'], 404);
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Like $like)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Like $like)
+    {
+        //
     }
 }

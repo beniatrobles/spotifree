@@ -7,61 +7,59 @@ use Illuminate\Http\Request;
 
 class PlaylistController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        return Playlist::with('songs')->get();
+        //
     }
 
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'name' => 'required|string',
-            'user_id' => 'required|exists:users,id',
-            'image' => 'nullable|string',
-            'song_ids' => 'nullable|array',
-            'song_ids.*' => 'exists:songs,id',
-        ]);
-
-        $playlist = Playlist::create([
-            'name' => $data['name'],
-            'user_id' => $data['user_id'],
-            'image' => $data['image'] ?? null,
-        ]);
-
-        if (!empty($data['song_ids'])) {
-            $playlist->songs()->sync($data['song_ids']);
-        }
-
-        return $playlist->load('songs');
+        //
     }
 
+    /**
+     * Display the specified resource.
+     */
     public function show(Playlist $playlist)
     {
-        return $playlist->load('songs');
+        //
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Playlist $playlist)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
     public function update(Request $request, Playlist $playlist)
     {
-        $data = $request->validate([
-            'name' => 'sometimes|required|string',
-            'image' => 'nullable|string',
-            'song_ids' => 'nullable|array',
-            'song_ids.*' => 'exists:songs,id',
-        ]);
-
-        $playlist->update($data);
-
-        if (array_key_exists('song_ids', $data)) {
-            $playlist->songs()->sync($data['song_ids']);
-        }
-
-        return $playlist->load('songs');
+        //
     }
 
+    /**
+     * Remove the specified resource from storage.
+     */
     public function destroy(Playlist $playlist)
     {
-        $playlist->delete();
-
-        return response()->json(['message' => 'Playlist deleted']);
+        //
     }
 }

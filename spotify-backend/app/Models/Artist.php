@@ -3,10 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Artist extends Model
 {
-     protected $fillable = ['name', 'image'];
+    use HasFactory;
+
+    protected $fillable = ['name', 'image'];
 
     public function albums()
     {
@@ -18,3 +21,4 @@ class Artist extends Model
         return $this->hasMany(Song::class);
     }
 }
+

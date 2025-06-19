@@ -3,12 +3,18 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Like extends Model
 {
-     protected $fillable = [
-        'user_id',
-        'song_id',
+    use HasFactory;
+
+    public $timestamps = false;
+
+    protected $fillable = ['user_id', 'song_id'];
+
+    protected $casts = [
+        'created_at' => 'datetime',
     ];
 
     public function user()
@@ -21,3 +27,4 @@ class Like extends Model
         return $this->belongsTo(Song::class);
     }
 }
+

@@ -11,10 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('playlist_song', function (Blueprint $table) {
+        Schema::create('playlists', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('playlist_id')->constrained()->onDelete('cascade');
-            $table->foreignId('song_id')->constrained()->onDelete('cascade');
+            $table->string('name');
+
+            $table->foreignId('user_id')
+                ->constrained()
+                ->onDelete('cascade'); // si se borra el usuario, se borra la playlist
+
+            $table->string('image')->nullable();
+
             $table->timestamps();
         });
     }
@@ -24,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('playlist_song');
+        Schema::dropIfExists('playlists');
     }
 };
