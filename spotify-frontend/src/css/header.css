@@ -1,0 +1,61 @@
+.header {
+  background-color: black;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 45px;
+  cursor: pointer;
+}
+
+.searchInput {
+  width: 200px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  border: none;
+  transition: width 0.3s ease, border 0.3s ease;
+}
+
+.searchInput:hover,
+.searchInput:focus {
+  width: 280px;
+  border: 2px solid black;
+  outline: none;
+}
+
+.sesion {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.btnRegistrarse {
+  color: rgb(170, 158, 158);
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.btnRegistrarse:hover {
+  color: white;
+  transform: scale(1.1);
+  text-decoration: none;
+}
+
+.btnIniciarSesion {
+  background-color: white;
+  padding: 15px 30px;
+  cursor: pointer;
+  border-radius: 30px;
+  color: black;
+  border: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btnIniciarSesion:hover {
+  transform: scale(1.1);
+}

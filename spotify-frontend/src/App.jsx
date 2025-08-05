@@ -1,38 +1,14 @@
-import { useState, useEffect } from 'react'
-import './App.css'
-import axios from 'axios'
+import { useState, useEffect } from 'react';
+import './App.css';
+import axios from 'axios';
+import { Header } from './components/layout/Header';
 
-function App()
-{
-  const [ artists, setArtists ] = useState( [] );
-
-  useEffect( () =>
-  {
-    fetchArtists()
-  }, [] );
-
-  const fetchArtists = async () =>
-  {
-    const response = await axios.get( "http://localhost:8000/api/artists" );
-    setArtists( response.data )
-  }
-
+function App() {
   return (
     <div>
-      <ul>
-        { artists.map( ( artist ) => (
-          <li key={ artist.id }>
-            <p>{ artist.name }</p>
-            <img
-              src={ `http://localhost:8000/${ artist.image }` }
-              alt={ artist.name }
-              width="150"
-            />
-          </li>
-        ) ) }
-      </ul>
+      <Header />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
