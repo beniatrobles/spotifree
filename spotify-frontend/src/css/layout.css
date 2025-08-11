@@ -1,0 +1,13 @@
+.mainContent {
+  position: fixed;
+  top: 80px;
+  bottom: 20px;
+  left: 470px; /* ancho sidebar (440) + margen (20) + un poco más si quieres */
+  right: 20px; /* margen derecho */
+  background-color: rgb(24, 24, 24);
+  border-radius: 12px;
+  padding: 20px;
+  overflow-y: auto;
+  box-sizing: border-box;
+  color: white;
+}

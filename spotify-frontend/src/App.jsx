@@ -1,13 +1,18 @@
-import { useState, useEffect } from 'react';
-import './App.css';
-import axios from 'axios';
-import { Header } from './components/layout/Header';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from "./components/layout/Layout";
+import Inicio from "./components/pages/Inicio";
+import './css/app.css';
+
 
 function App() {
   return (
-    <div>
-      <Header />
-    </div>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Inicio />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
 

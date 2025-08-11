@@ -1,0 +1,6 @@
+body, #root {
+  background-color: black;
+  margin: 0; /* para eliminar márgenes por defecto */
+  height: 100vh; /* que tome toda la altura */
+  color: white; /* para que el texto se vea */
+}

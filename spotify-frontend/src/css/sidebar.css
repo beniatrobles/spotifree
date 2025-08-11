@@ -1,0 +1,110 @@
+.sidebar {
+    position: fixed;
+    top: 80px;
+    left: 20px;
+    bottom: 20px;
+    width: 440px;
+    background-color: rgb(24, 24, 24);
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 100;
+}
+
+
+.anadirBiblioteca {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.anadirBiblioteca h2 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.btnAnadir {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btnAnadir:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.iconoAnadir {
+    width: 16px;
+    height: 16px;
+    filter: invert(1);
+}
+
+.crearLista {
+  background-color: rgb(53, 52, 52);
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border-radius: 8px;
+  gap: 10px;
+}
+
+.crearLista h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.crearLista p {
+  font-size: 14px;
+  color: rgb(200, 200, 200);
+  margin: 0;
+}
+
+.btnCrearLista {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  align-self: start; 
+}
+
+.btnCrearLista:hover {
+  background-color: rgb(230, 230, 230);
+  transform: scale(1.05);
+}
+
+.enlacesFooter {
+  margin-top: auto; 
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 18px;
+}
+
+.enlacesFooter a {
+  color: rgb(167, 167, 167);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.enlacesFooter a:hover {
+  color: white;
+}
