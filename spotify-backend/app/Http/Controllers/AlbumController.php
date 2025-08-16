@@ -12,7 +12,7 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        //
+        return Album::inRandomOrder()->limit(10)->get();
     }
 
     /**

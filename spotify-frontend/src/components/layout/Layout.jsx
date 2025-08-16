@@ -2,12 +2,13 @@ import { Header } from "./Header";
 import { Sidebar } from "./Sidebar";
 import '../../css/layout.css';
 
-export default function Layout({ children }) {
+export default function Layout( { children } )
+{
   return (
     <div className="layout">
-       <Header />
+      <Header />
       <Sidebar />
-      <main className="mainContent">{children}</main>
+      <main className="mainContent">{ children }</main>
     </div>
   );
 }

@@ -12,7 +12,10 @@ class SongController extends Controller
      */
     public function index()
     {
-        //
+        return Song::inRandomOrder()
+            ->with(['artist', 'album'])
+            ->take(10)
+            ->get();
     }
 
     /**
