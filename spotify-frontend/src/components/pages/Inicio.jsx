@@ -102,6 +102,63 @@ export default function Inicio() {
           </div>
         ))}
       </div>
+      {/* Línea separadora */}
+      <hr className="footer-line" />
+      <footer className="footer">
+      <div className="footer-contenedor">
+        {/* Columna Empresa */}
+        <div className="footer-col">
+          <h4>Empresa</h4>
+          <ul>
+            <li>Acerca de</li>
+            <li>Empleo</li>
+            <li>For the Record</li>
+          </ul>
+        </div>
+
+        {/* Columna Comunidades */}
+        <div className="footer-col">
+          <h4>Comunidades</h4>
+          <ul>
+            <li>Para artistas</li>
+            <li>Desarrolladores</li>
+            <li>Publicidad</li>
+            <li>Inversores</li>
+            <li>Proveedores</li>
+          </ul>
+        </div>
+
+        {/* Columna Enlaces útiles */}
+        <div className="footer-col">
+          <h4>Enlaces útiles</h4>
+          <ul>
+            <li>Asistencia</li>
+            <li>App gratis para móvil</li>
+            <li>Popular por país</li>
+          </ul>
+        </div>
+
+        {/* Columna Planes */}
+        <div className="footer-col">
+          <h4>Planes de Spotify</h4>
+          <ul>
+            <li>Premium Individual</li>
+            <li>Premium Duo</li>
+            <li>Premium Familiar</li>
+            <li>Premium para Estudiantes</li>
+            <li>Spotify Free</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Línea separadora */}
+      <hr className="footer-line" />
+
+      {/* Copyright */}
+      <div className="footer-bottom">
+        <p>© 2025 Spotify AB</p>
+      </div>
+    </footer>
     </div>
   );
 }
