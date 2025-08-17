@@ -1,0 +1,34 @@
+.album-detail {
+  padding: 20px;
+  color: white;
+}
+
+.album-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.album-detail-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 10%;
+  object-fit: cover;
+}
+
+.lista-canciones {
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.cancion-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.cancion-item:hover {
+  background-color: #333232;
+  color: #1db954; 
+}

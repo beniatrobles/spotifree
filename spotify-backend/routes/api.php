@@ -10,6 +10,10 @@ Route::get('/artists',[ArtistController::class,'index'])->name('artists.index');
 Route::get('/albums',[AlbumController::class,'index'])->name('albums.index');
 Route::get('/songs',[SongController::class,'index'])->name('songs.index');
 
+Route::get('/albums/{id}', [AlbumController::class, 'show']);  
+Route::get('/albums/{id}/songs', [SongController::class, 'songsByAlbum']);
+
+
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');

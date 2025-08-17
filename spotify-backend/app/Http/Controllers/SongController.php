@@ -13,9 +13,15 @@ class SongController extends Controller
     public function index()
     {
         return Song::inRandomOrder()
-            ->with(['artist', 'album'])
+         ->with(['artist', 'album'])
             ->take(10)
             ->get();
+    }
+
+    public function songsByAlbum($albumId){
+        return Song::with('artist', 'album')
+        ->where('album_id', $albumId)
+        ->get();
     }
 
     /**

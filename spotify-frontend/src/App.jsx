@@ -1,18 +1,26 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { PlayerProvider } from "./context/PlayerContext";
+import Player from "./components/Player";
 import Layout from "./components/layout/Layout";
 import Inicio from "./components/pages/Inicio";
+import AlbumDetail from "./components/pages/AlbumDetail";
 import './css/app.css';
 
 
-function App() {
+function App()
+{
   return (
-    <Router>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Inicio />} />
-        </Routes>
-      </Layout>
-    </Router>
+    <PlayerProvider>
+      <Router>
+        <Layout>
+          <Routes>
+            <Route path="/" element={ <Inicio /> } />
+            <Route path="/album/:id" element={ <AlbumDetail /> } />
+          </Routes>
+        </Layout>
+        <Player />
+      </Router>
+    </PlayerProvider>
   );
 }
 
