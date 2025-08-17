@@ -67,7 +67,8 @@ export default function Inicio()
       <h2 className="subtitulo">Artistas del mes</h2>
       <div className="lista-artistas">
         { artists.map( ( artist ) => (
-          <div key={ artist.id } className="artista-card">
+          <div key={ artist.id } className="artista-card"
+            onClick={ () => navigate( `/artist/${ artist.id }` ) }>
             <img
               src={ `http://localhost:8000/${ artist.image }` }
               alt={ artist.name }

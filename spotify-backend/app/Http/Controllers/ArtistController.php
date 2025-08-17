@@ -34,9 +34,9 @@ class ArtistController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Artist $artist)
+    public function show($id)
     {
-        //
+        return Artist::with('songs','albums')->findOrFail($id);
     }
 
     /**
