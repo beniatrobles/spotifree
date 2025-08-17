@@ -105,7 +105,11 @@ export default function Inicio()
       <h2 className="subtitulo">Canciones en tendencia</h2>
       <div className="lista-songs">
         { songs.map( ( song ) => (
-          <div key={ song.id } className="song-card">
+          <div
+            key={ song.id }
+            className="song-card"
+            onClick={ () => navigate( `/album/${ song.album.id }`, { state: { highlightSongId: song.id } } ) }
+          >
             <img
               src={ `http://localhost:8000/${ song.album?.image }` }
               alt={ song.title }

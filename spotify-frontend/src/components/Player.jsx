@@ -31,7 +31,7 @@ export default function Player() {
       {/* Controles */}
       <div className="player-center">
         <button className="player-btn" onClick={togglePlay}>
-          {isPlaying ? '⏸' : '▶️'}
+          {isPlaying ? '\u23F8' : '\u25B6'}
         </button>
 
         <div className="player-progress">
