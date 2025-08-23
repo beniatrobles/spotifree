@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Playlist;
+use App\Models\PlaylistSong;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -89,6 +90,60 @@ class PlaylistController extends Controller
      */
     public function destroy(Playlist $playlist)
     {
-        //
+        $user = Auth::user();
+
+        // Solo permite borrar si la playlist es del usuario autenticado
+        if ($playlist->user_id !== $user->id) {
+            return response()->json(['message' => 'No autorizado'], 403);
+        }
+
+
+
+
+        $playlist->delete();
+
+        return response()->json(['message' => 'Playlist eliminada correctamente'], 200);
     }
+
+   public function addSong(Request $request, Playlist $playlist)
+{
+    try {
+        // Verifica que la playlist pertenece al usuario
+        if ($playlist->user_id !== Auth::id()) {
+            return response()->json(['message' => 'No autorizado'], 403);
+        }
+
+        // Validación
+        $request->validate([
+            'song_id' => 'required|exists:songs,id',
+        ]);
+
+        // Evita duplicados
+        $exists = PlaylistSong::where('playlist_id', $playlist->id)
+            ->where('song_id', $request->song_id)
+            ->exists();
+
+        if ($exists) {
+            return response()->json(['message' => 'La canción ya está en la playlist'], 409);
+        }
+
+        $playlistSong = PlaylistSong::create([
+            'playlist_id' => $playlist->playlist_id,
+            'song_id' => $request->song_id,
+        ]);
+
+        return response()->json([
+            'message' => 'Canción añadida',
+            'data' => $playlistSong
+        ], 201);
+
+    } catch (\Exception $e) {
+        // Esto muestra el error exacto que está causando el 500
+        return response()->json([
+            'message' => 'Error al añadir canción',
+            'error' => $e->getMessage(),
+        ], 500);
+    }
+}
+
 }

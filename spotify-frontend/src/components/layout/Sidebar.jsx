@@ -27,9 +27,7 @@ export const Sidebar = () => {
     try {
       const token = localStorage.getItem('token');
       const res = await axios.get('http://localhost:8000/api/playlists', {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
+        headers: { Authorization: `Bearer ${token}` }
       });
       setPlaylists(res.data.playlists || []);
     } catch (err) {
@@ -81,18 +79,31 @@ export const Sidebar = () => {
 
       const token = localStorage.getItem('token');
 
-      const res = await axios.post('http://localhost:8000/api/playlists', formData, {
+      await axios.post('http://localhost:8000/api/playlists', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}`
         }
       });
 
-      console.log('Playlist creada:', res.data.playlist);
       handleCloseCreateModal();
-      fetchPlaylists(); // Recargar playlists
+      fetchPlaylists();
     } catch (err) {
       setError(err.response?.data?.message || 'Error al crear playlist');
+    }
+  };
+
+  const handleDeletePlaylist = async (id) => {
+    if (!window.confirm('¿Seguro que quieres borrar esta playlist?')) return;
+
+    try {
+      const token = localStorage.getItem('token');
+      await axios.delete(`http://localhost:8000/api/playlists/${id}`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      fetchPlaylists();
+    } catch (err) {
+      console.error('Error al eliminar playlist', err);
     }
   };
 
@@ -110,12 +121,20 @@ export const Sidebar = () => {
         <div className='playlistContainer'>
           {playlists.map((pl) => (
             <div key={pl.id} className='playlistItem'>
-              <img
-                src={pl.image ? `http://localhost:8000/storage/${pl.image}` : '/default_playlist.png'}
-                alt={pl.name}
-                className='playlistImg'
-              />
-              <span>{pl.name}</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <img
+                  src={pl.image ? `http://localhost:8000/storage/${pl.image}` : '/default_playlist.png'}
+                  alt={pl.name}
+                  className='playlistImg'
+                />
+                <span>{pl.name}</span>
+              </div>
+              <button
+                className="deleteBtn"
+                onClick={() => handleDeletePlaylist(pl.id)}
+              >
+                ✖
+              </button>
             </div>
           ))}
         </div>
@@ -144,7 +163,7 @@ export const Sidebar = () => {
             <h3>Inicia sesión</h3>
             <p>Debes iniciar sesión para realizar esta acción.</p>
             <div className="modalButtons">
-              <button onClick={handleGoToLogin} className="btnModalLogin">Iniciar Sesion</button>
+              <button onClick={handleGoToLogin} className="btnModalLogin">Iniciar Sesión</button>
               <button onClick={handleCloseLoginModal} className="btnModalClose">Cancelar</button>
             </div>
           </div>

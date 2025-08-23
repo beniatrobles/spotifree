@@ -19,7 +19,7 @@ export const Header = () => {
         localStorage.removeItem('user');
         localStorage.removeItem('token');
         setUser(null);
-        navigate('/login'); // Redirigir al inicio
+        window.location.href = '/';
     };
 
     return (
