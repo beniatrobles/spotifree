@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // 👈 Importar Link
+import { Link } from 'react-router-dom'; 
 import '../../css/header.css';
 
 export const Header = () => {
     return (
         <div className="header">
-            <Link to="/">   {/* 👈 al pulsar el logo, te lleva a Inicio */}
-                <img src="/spotify.png" alt="logo" className="logo" />
+            <Link to="/">
+                <img src="/spotify.png" alt="logo" className="logo" title='Ir al inicio'/>
             </Link>
             
             <input 

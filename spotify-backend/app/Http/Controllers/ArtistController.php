@@ -36,7 +36,12 @@ class ArtistController extends Controller
      */
     public function show($id)
     {
-        return Artist::with('songs','albums')->findOrFail($id);
+        return Artist::with([
+            'songs' => function ($query) {
+                $query->inRandomOrder()->limit(5);
+            },
+            'albums'
+        ])->findOrFail($id);
     }
 
     /**

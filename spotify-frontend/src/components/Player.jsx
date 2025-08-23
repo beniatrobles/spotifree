@@ -18,10 +18,6 @@ export default function Player() {
     <div className="player">
       {/* Info */}
       <div className="player-info">
-        <img
-          src={`http://localhost:8000/${currentSong.album?.image}`}
-          alt={currentSong.title}
-        />
         <div className="player-meta">
           <p className="player-title">{currentSong.title}</p>
           <p className="player-sub">{currentSong.artist?.name}</p>

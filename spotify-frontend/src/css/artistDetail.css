@@ -1,29 +1,72 @@
 .fondoArtista {
-  width: 100%;
-  height: 400px;                     /* Altura mayor para banner */
+  height: 230px; /* Banner grande */
+  width: 98%;
   background-size: cover;
   background-position: center;
+  position: relative;
   display: flex;
-  align-items: flex-end;             /* Texto abajo */
-  padding: 40px;                     /* Más espacio interno */
+  align-items: flex-end;
+  padding: 20px;
   color: white;
-  text-shadow: 2px 2px 12px rgba(0,0,0,0.8);
-  position: relative;
-  border-radius: 0;                  /* Opcional: banner sin esquinas redondeadas */
+  border-radius: 20px;
 }
 
-.fondoArtista::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.2)); /* gradiente */
-  z-index: 1;
+.tituloArtista {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  align-self: flex-end;
 }
 
-.fondoArtista h1 {
-  position: relative;
-  z-index: 2;
-  font-size: 3rem;                  /* Texto más grande */
-  margin: 0;
+.subtitulo {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  padding-bottom: 5px;
+}
+
+.lista-canciones {
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.cancion-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.cancion-item:hover {
+  background-color: #333232;
+  color: #1db954;
+}
+
+
+.discografia-list {
+  display: flex;           /* Coloca los álbumes en fila */
+  gap: 20px;               /* Espacio entre álbumes */
+  overflow-x: auto;        /* Scroll horizontal si hay muchos álbumes */
+  padding: 10px 0;
+  list-style: none;
+}
+
+.discografia-list li {
+  min-width: 150px;        
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.discografia-list li:hover {
+  transform: scale(1.01);
+  color: #1db954;
+}
+
+.album-detail-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 10%;
+  object-fit: cover;
+  margin-bottom: 5px;
 }
