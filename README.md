@@ -67,3 +67,25 @@ Inicia el servidor
 ```bash
 php artisan serve
 ```
+
+📌 Backend disponible en: http://127.0.0.1:8000
+
+
+## 3️⃣ Configurar el Frontend (React + Vite)
+```bash
+cd ../spotify-frontend
+npm install
+cp .env.example .env
+```
+
+Edita spotify-frontend/.env
+
+```bash
+VITE_API_URL=http://127.0.0.1:8000/api
+```
+Levanta el servidor de desarrollo
+
+```bash
+npm run dev
+```
+📌 Frontend disponible en: http://127.0.0.1:5173
