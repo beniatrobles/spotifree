@@ -57,3 +57,13 @@ Genera la clave de la aplicación
 php artisan key:generate
 ```
 
+Genera la clave de la aplicación
+```bash
+php artisan migrate --seed
+php artisan storage:link
+```
+
+Inicia el servidor
+```bash
+php artisan serve
+```
