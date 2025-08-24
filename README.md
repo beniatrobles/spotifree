@@ -51,3 +51,9 @@ DB_USERNAME=tu_usuario
 DB_PASSWORD=tu_password
 
 ```
+
+Genera la clave de la aplicación
+```bash
+php artisan key:generate
+```
+
