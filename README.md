@@ -7,7 +7,7 @@ Permite gestionar usuarios, playlists, canciones y mucho más. 🚀
 
 ## 📂 Tecnologías usadas
 - **Backend:** Laravel 10, PHP 8, PostgreSQL
-- **Frontend:** React, Vite, Axios, TailwindCSS
+- **Frontend:** React, Vite, Axios, css vanilla
 - **Autenticación:** Laravel Sanctum
 - **ORM:** Eloquent
 - **API:** REST
