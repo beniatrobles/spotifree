@@ -31,51 +31,23 @@ Antes de empezar, asegúrate de tener instalado:
 ```bash
 git clone https://github.com/tu-usuario/spotifree.git
 cd spotifree
+```
+## 2️⃣ Configurar el Backend (Laravel)
+
+```bash
 cd spotify-backend
 composer install
-cp .env.example .env
+cp .env.example .env   # En Windows PowerShell: copy .env.example .env
+
+```
+Edita .env con tus credenciales de PostgreSQL
+
+```bash
 DB_CONNECTION=pgsql
 DB_HOST=127.0.0.1
 DB_PORT=5432
 DB_DATABASE=spotifree
 DB_USERNAME=tu_usuario
 DB_PASSWORD=tu_password
-php artisan key:generate
-php artisan migrate --seed
-php artisan serve
-Configurar el Frontend (React)
-cd ../spotify-frontend
 
-
-Instalar dependencias:
-
-npm install
-
-
-Crear archivo .env:
-
-cp .env.example .env
-
-
-Configurar URL del backend en .env:
-
-VITE_API_URL=http://127.0.0.1:8000/api
-
-
-Levantar el servidor frontend:
-
-npm run dev
-
-
-El frontend estará en http://127.0.0.1:5173.
-
-🛠️ Scripts útiles
-Backend
-php artisan migrate:fresh --seed   # Reinicia la base de datos
-php artisan tinker                 # Consola interactiva
-php artisan route:list             # Ver rutas disponibles
-
-Frontend
-npm run dev    # Levanta el frontend en desarrollo
-npm run build  # Compila para producción
-npm run lint   # Linter
+```
